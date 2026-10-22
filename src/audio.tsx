@@ -1,11 +1,11 @@
 // Soundtrack: BGM bed (toggle with the `bgm` prop for the SFX-only master) + the SFX pin table.
 // Every pin is relative (SHOTS.x.from + a shot's exported action frame) and lands the sample's measured
 // perceived peak on that frame: from = target − peak lag − output offset (sound-design §4.5/§4.6).
-// Peak lags / levels: analysis/sfx_peaks.json (scripts/sfx-peaks.mjs).
+// Peak lags / levels: src/sfx_peaks.json (scripts/sfx-peaks.mjs; kept inside src/ so the workbench link sees it).
 import React from 'react';
 import { Audio, Sequence, staticFile } from 'remotion';
 import { PUSH_INTO, SHOTS } from './timeline';
-import PEAKS from '../analysis/sfx_peaks.json';
+import PEAKS from './sfx_peaks.json';
 import { S1_BLOB_AT, S1_LANDINGS, S1_STICKER_AT } from './shots/S1Open';
 import { S2_DEAL_CUES } from './shots/S2Deal';
 import { S3_CLICKS } from './shots/S3Filter';

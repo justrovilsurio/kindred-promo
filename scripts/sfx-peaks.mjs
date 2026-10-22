@@ -15,5 +15,5 @@ for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.mp3'))) {
   out[f] = { dur_s: +(n / 22050).toFixed(2), peak_db: +(20 * Math.log10(peak)).toFixed(1), hit_lag_f: +((hitIdx * H / 22050) * 30).toFixed(2) };
   fs.unlinkSync(wav);
 }
-fs.writeFileSync('analysis/sfx_peaks.json', JSON.stringify(out, null, 1));
+fs.writeFileSync('src/sfx_peaks.json', JSON.stringify(out, null, 1));
 console.log(out);
