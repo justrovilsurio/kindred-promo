@@ -1,0 +1,57 @@
+{
+ "autocorrBpm": 129.99599999999964,
+ "candidates": [
+  {
+   "name": "0.5x",
+   "bpm": 65.00138711673542,
+   "T": 0.9230572247980883,
+   "t0": 0.23829426535076334,
+   "beats": 135,
+   "kickOnBeat": 0.9555555555555556,
+   "judged": 126,
+   "match": 1,
+   "mean_abs_ms": 15.130669537885334,
+   "max_resid_ms": 34.52215853545226,
+   "drift_ms_total": 4.637083427435742e-11,
+   "first_beat_on_attack": true
+  },
+  {
+   "name": "1x",
+   "bpm": 129.99921533628302,
+   "T": 0.4615412473436207,
+   "t0": 0.23594591947717128,
+   "beats": 269,
+   "kickOnBeat": 0.9591078066914498,
+   "judged": 248,
+   "match": 1,
+   "mean_abs_ms": 13.193116532249823,
+   "max_resid_ms": 33.08352867137643,
+   "drift_ms_total": 3.1629971242231093e-10,
+   "first_beat_on_attack": true
+  },
+  {
+   "name": "2x",
+   "bpm": 259.99135537442515,
+   "T": 0.23077690376894003,
+   "t0": 0.23375513338883033,
+   "beats": 537,
+   "kickOnBeat": 0.9608938547486033,
+   "judged": 475,
+   "match": 1,
+   "mean_abs_ms": 11.789421273458345,
+   "max_resid_ms": 32.018332419117,
+   "drift_ms_total": -2.530745958412023e-10,
+   "first_beat_on_attack": true
+  }
+ ],
+ "winner": "1x",
+ "reason": "130.00 BPM: kick onsets at phase 0.232 s in every drum section (grid-check/phase-check), off-beat hats at +T/2; 1x keeps kicks on whole beats",
+ "localCoverage": {
+  "judged": 248,
+  "silent": 21,
+  "match": 1,
+  "mean_abs_ms": 13.213371370053398,
+  "misses": [],
+  "missCount": 0
+ }
+}
