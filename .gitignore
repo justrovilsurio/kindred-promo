@@ -1,4 +1,5 @@
 ﻿node_modules/
 out/
 analysis/*.wav
-
+public/audio/
+reference-demos/

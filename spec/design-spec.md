@@ -8,7 +8,7 @@ after release, within the approved plan.
 
 | Item | Decision | Evidence |
 |---|---|---|
-| Product | Kindred: page builder for animal-rescue groups; each group gets one public page plus a private dashboard | `E:\animal rescue platform\README.md` |
+| Product | Kindred: page builder for animal-rescue groups; each group gets one public page plus a private dashboard | the app's `README.md` |
 | Audience | Small volunteer-run rescue groups (founder, drivers, vet liaison), no web skills | seed team copy |
 | Purpose | Win rescue groups over: "your rescue gets a beautiful page in minutes" | user answer 1 |
 | Core selling points | (1) every animal gets its own story page (2) publish only when ready (3) looks good with no design work | draft/pending/live flow, preview, themes |
@@ -33,7 +33,7 @@ after release, within the approved plan.
 
 ## 3. Visual direction: A · Sticker Poster (approved)
 
-Tokens copied from `E:\animal rescue platform\src\styles\tokens.css` and computed styles:
+Tokens copied from the app's `src/styles/tokens.css` and computed styles:
 
 - Colour: lime `#cadf42`, periwinkle `#c0c4fe`, iris `#8d92fd`, navy `#151f30`, paper `#f5f5f6`, surface `#ffffff`,
   ink-muted `#535a69`, doodle `#b4b6be`, lime-soft `#eff5c8`, brand-soft `#e6e7ff`; status live ink/bg `#3d4b05/#e4efa6`,
@@ -48,8 +48,7 @@ Tokens copied from `E:\animal rescue platform\src\styles\tokens.css` and compute
 - Motion tokens (preset "playful/cheerful" tuned toward "friendly"): main duration ~24f, entrance
   `cubic-bezier(0.34,1.56,0.64,1)` (the site's own `kd-drop` curve), overshoot ≤1.08, squash ≤0.15;
   push/slide `cubic-bezier(0.16,1,0.3,1)`; no handheld shake; at most one light accent per shot.
-- Styleframes: `C:\Users\rovil\AppData\Local\Temp\claude\e--animal-rescue-platform\9ec568d8-acdd-4805-8c6a-f3d8feb291c2\scratchpad\styleframes\{f1,f2,f3}.png`
-  (copied to `spec/styleframes/`).
+- Styleframes: `spec/styleframes/{f1,f2,f3}.png`.
 
 ## 4. Feature → shot mapping (approved)
 
