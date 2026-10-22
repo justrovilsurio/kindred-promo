@@ -16,7 +16,8 @@ import { K } from '../brand';
 
 const D = L.dashboard;
 const ROW = D.row, SW = D.switch;
-const CUT = 48;
+export const S7_CUT = 48;
+const CUT = S7_CUT;
 const CLICK = 18;
 export const S7_CLICK = CLICK;
 

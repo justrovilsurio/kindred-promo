@@ -12,7 +12,7 @@ import { Soundtrack } from './audio';
 const heavyEaseOut = bezier(0.12, 0.9, 0.2, 1);
 const H = 1080;
 
-const ShotLayer: React.FC<{ k: ShotKey }> = ({ k }) => {
+export const ShotLayer: React.FC<{ k: ShotKey }> = ({ k }) => {
   const frame = useCurrentFrame(); // local to the shot's Sequence
   const i = ORDER.indexOf(k);
   const next = ORDER[i + 1];
@@ -41,7 +41,7 @@ const ShotLayer: React.FC<{ k: ShotKey }> = ({ k }) => {
   );
 };
 
-const CaptionLayer: React.FC<{ k: ShotKey; text: string; inAt: number; outAt?: number }> = ({ k, text, inAt, outAt }) => {
+export const CaptionLayer: React.FC<{ k: ShotKey; text: string; inAt: number; outAt?: number }> = ({ k, text, inAt, outAt }) => {
   const frame = useCurrentFrame();
   const end = outAt ?? SHOTS[k].dur - 2;
   const p = ramp(frame, inAt, 12, EASE.out) * (1 - ramp(frame, end - 6, 6, EASE.exit));

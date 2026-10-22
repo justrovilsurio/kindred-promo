@@ -1,0 +1,97 @@
+{
+ "bass-hit-short.mp3": {
+  "dur_s": 1.1,
+  "peak_db": -0.3,
+  "hit_lag_f": 2.1
+ },
+ "click-camera.mp3": {
+  "dur_s": 0.35,
+  "peak_db": -7.1,
+  "hit_lag_f": 5.69
+ },
+ "hit-weak.mp3": {
+  "dur_s": 0.59,
+  "peak_db": -5.8,
+  "hit_lag_f": 3.59
+ },
+ "impact-deep-whoosh.mp3": {
+  "dur_s": 4.06,
+  "peak_db": -0.9,
+  "hit_lag_f": 12.87
+ },
+ "impact-epic-trailer.mp3": {
+  "dur_s": 4.87,
+  "peak_db": -1.2,
+  "hit_lag_f": 27.54
+ },
+ "keyboard.mp3": {
+  "dur_s": 19.63,
+  "peak_db": -1.8,
+  "hit_lag_f": 3.59
+ },
+ "paper-move-quick.mp3": {
+  "dur_s": 0.9,
+  "peak_db": -9.5,
+  "hit_lag_f": 8.98
+ },
+ "paper-page-turn.mp3": {
+  "dur_s": 0.45,
+  "peak_db": -5,
+  "hit_lag_f": 4.19
+ },
+ "paper-slide.mp3": {
+  "dur_s": 1.09,
+  "peak_db": -0.5,
+  "hit_lag_f": 10.48
+ },
+ "pop.mp3": {
+  "dur_s": 0.48,
+  "peak_db": -2.1,
+  "hit_lag_f": 0.9
+ },
+ "riser-cine.mp3": {
+  "dur_s": 4.81,
+  "peak_db": -0.2,
+  "hit_lag_f": 18.26
+ },
+ "sparkle-touch.mp3": {
+  "dur_s": 2.33,
+  "peak_db": -6.8,
+  "hit_lag_f": 13.77
+ },
+ "sparkle.mp3": {
+  "dur_s": 4.55,
+  "peak_db": -9.9,
+  "hit_lag_f": 41.01
+ },
+ "sweep-fast.mp3": {
+  "dur_s": 1.92,
+  "peak_db": -0.9,
+  "hit_lag_f": 11.97
+ },
+ "switch-tap.mp3": {
+  "dur_s": 1.11,
+  "peak_db": 0,
+  "hit_lag_f": 0
+ },
+ "swoosh-quick.mp3": {
+  "dur_s": 0.78,
+  "peak_db": -3.9,
+  "hit_lag_f": 8.08
+ },
+ "transition-soft.mp3": {
+  "dur_s": 1.27,
+  "peak_db": -1.1,
+  "hit_lag_f": 11.37
+ },
+ "whoosh-big.mp3": {
+  "dur_s": 2.32,
+  "peak_db": -1.6,
+  "hit_lag_f": 21.25
+ },
+ "whoosh-fast.mp3": {
+  "dur_s": 1.76,
+  "peak_db": -6.3,
+  "hit_lag_f": 20.65
+ }
+}

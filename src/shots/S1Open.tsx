@@ -23,7 +23,7 @@ const PAD = 160;
 
 const GLYPHS = LINES.flatMap((line, li) => Array.from(line).map((ch, ci) => ({ ch, li, ci }))).filter((g) => g.ch !== ' ');
 const N = GLYPHS.length;
-const startOf = (i: number) => 4 + 30 * (1 - Math.pow(1 - i / (N - 1), 1.5));
+const startOf = (i: number) => -8 + 34 * (1 - Math.pow(1 - i / (N - 1), 1.5)); // already falling at f0: no empty opening frame
 
 const dropY = (t: number): number => {
   if (t <= 0) return -DROP;
