@@ -130,7 +130,6 @@ export const S3Filter: React.FC = () => {
     return o > 0 ? <div style={{ position: 'absolute', left: b.x - 3, top: b.y - 3, width: b.w + 6, height: b.h + 6, borderRadius: 12, border: `2px solid ${K.iris}`, boxShadow: `0 0 0 4px ${'rgba(141,146,253,0.25)'}`, opacity: o, zIndex: 3 }} /> : null;
   };
 
-  const tex = STATES[st];
   return (
     <AbsoluteFill style={{ background: PAGE_BG, overflow: 'hidden' }}>
       <div style={{
@@ -138,11 +137,15 @@ export const S3Filter: React.FC = () => {
         transform: `translate(${960 - cam.cx * cam.zoom}px, ${540 - cam.cy * cam.zoom}px) scale(${cam.zoom})`, transformOrigin: '0 0',
       }}>
         <Img src={staticFile('textures/adopt-empty.png')} style={{ position: 'absolute', width: 1920, height: L.adopt.pageH }} />
-        {/* Filter bar + result count in the current real state */}
-        <div style={{
-          position: 'absolute', left: FILTERS.x - 4, top: FILTERS.y - 4, width: FILTERS.w + 8, height: FILTERS.h + 8,
-          backgroundImage: `url(${staticFile(`textures/${tex.tex}.png`)})`, backgroundSize: `1920px ${STATE_H[st]}px`, backgroundPosition: `-${FILTERS.x - 4}px -${FILTERS.y - 4}px`,
-        }} />
+        {/* Filter bar + result count in each real state. All four are mounted as <Img> (render waits for
+            every load) and switched by opacity, so no frame can show a texture that has not decoded yet. */}
+        <div style={{ position: 'absolute', left: FILTERS.x - 4, top: FILTERS.y - 4, width: FILTERS.w + 8, height: FILTERS.h + 8, overflow: 'hidden' }}>
+          {STATES.map((s, si) => (
+            <Img key={s.tex} src={staticFile(`textures/${s.tex}.png`)} style={{
+              position: 'absolute', left: -(FILTERS.x - 4), top: -(FILTERS.y - 4), width: 1920, height: STATE_H[si], maxWidth: 'none', opacity: si === st ? 1 : 0,
+            }} />
+          ))}
+        </div>
         {focusRing(selLoc, CLICKS[1].at)}
         {focusRing(selAge, CLICKS[2].at)}
 

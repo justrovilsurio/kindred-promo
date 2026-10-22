@@ -46,6 +46,6 @@ export const CAPTIONS: { shot: ShotKey; text: string; inAt: number; outAt?: numb
   { shot: 'deal', text: 'Every animal gets its own card.', inAt: 60 },
   { shot: 'filter', text: 'Adopters filter by type, age and place.', inAt: 10 },
   { shot: 'story', text: 'Every animal gets a full story page.', inAt: 30 },
-  { shot: 'editor', text: 'Fill in a form. See the card as you go.', inAt: 8 },
+  { shot: 'editor', text: 'Fill in a form. See the card as you go.', inAt: 4, outAt: 47 }, // clears the breed/date row before it is typed
   { shot: 'sections', text: 'Sections switch on and off. The order never changes.', inAt: 12 },
 ];

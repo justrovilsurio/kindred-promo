@@ -56,7 +56,7 @@ export const CatLogo: React.FC<{ size: number; ring?: number; style?: React.CSSP
   const r = ring ?? Math.max(4, size * 0.05);
   return (
     <div style={{ width: size, height: size, borderRadius: '50%', overflow: 'hidden', flex: 'none', boxShadow: `0 0 0 ${r}px ${K.lime}, 0 ${size * 0.1}px ${size * 0.25}px rgba(0,0,0,0.28)`, ...style }}>
-      <Img src={staticFile('photos/saffron-kitten.webp')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 35%' }} />
+      <Img src={staticFile('photos/saffron-kitten.webp')} style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 35%' }} />
     </div>
   );
 };

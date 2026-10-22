@@ -29,6 +29,8 @@ const CALL = { x: 600, y: 726, w: 1240 };
 const CALL_S = CALL.w / L.editor.publishing.w;
 const BTN = { x: CALL.x + (L.editor.publishBtn.x - L.editor.publishing.x + L.editor.publishBtn.w / 2) * CALL_S, y: CALL.y + (L.editor.publishBtn.y - L.editor.publishing.y + L.editor.publishBtn.h / 2) * CALL_S };
 const STK = { cx: 1690, cy: 300, size: 220 };
+// Toast in callout px: 243×45 CSS, vertically where the app puts it, x centred in the bar's free span.
+const TOAST = { x: 480, y: (1015 - L.editor.publishing.y) * CALL_S, w: 243.14 * CALL_S, h: 45 * CALL_S };
 
 const rnd = (n: number) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 const BITS = Array.from({ length: 18 }, (_, i) => ({
@@ -72,6 +74,7 @@ export const S6Publish: React.FC = () => {
   const ptrPress = frame >= S6_CLICK - 1 && frame <= S6_CLICK + 4 ? 0.86 : 1;
   const line2 = ramp(frame, IMPACT, 9, bezier(0.2, 0.75, 0.3, 1));
   const sub = ramp(frame, IMPACT + 12, 14, EASE.out);
+  const toastIn = ramp(frame, IMPACT + 4, 10, EASE.out);
 
   return (
     <AbsoluteFill style={{ background: K.paper, overflow: 'hidden' }}>
@@ -100,6 +103,14 @@ export const S6Publish: React.FC = () => {
           <div style={{ position: 'absolute', left: CALL.x, top: CALL.y, width: CALL.w, borderRadius: 26, overflow: 'hidden', boxShadow: '0 40px 90px rgba(21,31,48,0.3), 0 2px 8px rgba(21,31,48,0.1)', transform: `translateY(${(24 * env).toFixed(2)}px) rotate(${(0.8 * env).toFixed(3)}deg)` }}>
             <Img src={staticFile('textures/pubbar-draft.png')} style={{ display: 'block', width: '100%' }} />
             <Img src={staticFile('textures/pubbar-live.png')} style={{ position: 'absolute', left: 0, top: 0, width: '100%', opacity: live ? swap : 0 }} />
+            {/* The app's toast, captured on its own (scripts/capture-toast.mjs) and placed in the bar's free span
+                left of Unpublish (styleframe f2) instead of over it; it rises in right after the slam. */}
+            <div style={{
+              position: 'absolute', left: TOAST.x, top: TOAST.y, width: TOAST.w, height: TOAST.h, borderRadius: TOAST.h / 2, overflow: 'hidden',
+              boxShadow: '0 10px 24px rgba(21,31,48,0.22)', opacity: toastIn, transform: `translateY(${((1 - toastIn) * 14).toFixed(2)}px)`,
+            }}>
+              <Img src={staticFile('textures/toast-live.png')} style={{ display: 'block', width: '100%', height: '100%' }} />
+            </div>
           </div>
         </SpeedBlur>
 

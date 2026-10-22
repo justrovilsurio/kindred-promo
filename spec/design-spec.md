@@ -100,3 +100,32 @@ Checks: each card is the featured move exactly once (the seam technique is not a
   the drop (song b64) lands on the cut into shot 5 (v46). Opening sits in the quiet intro, the gallery deal rides the build.
 - Cut points: `beatF(v) = round(v × T × 30)`; BGM fades out over the last 2 beats.
 - Deliverables: `out/promo.mp4` (BGM) and `out/promo-nobgm.mp4` (SFX only) from the same timeline via the `bgm` prop.
+
+## 7. Production notes — adaptations made during build (for the final review)
+
+Approved plan unchanged in order, copy and shot styles; these are implementation-level adaptations:
+
+| Shot | Adaptation | Why |
+|---|---|---|
+| 1 | Letter starts compressed (−8 + 34·(…)) so glyphs are already falling at f0 | avoid an empty-lime first second; still ever-denser stagger (R2) |
+| 2 | Table = brand navy (not off-white); 7 real cards, no duplicated "extras"; harder deal acceleration (D + 6k − 0.45k(k−1)); gentle overhead instead of 26-card runway | the card's "never replace the dark table with white paper" pitfall; duplicated named animals would read as a bug |
+| 3 | "Typing" beat becomes three real filter picks: **Dogs → Pasig → 1–3 years** (storyboard said Dogs → Pasig) | Dogs + Pasig leaves Mango **and Domino** in the real app; adding the age filter makes "Mango alone" true and matches the caption "type, age and place" |
+| 4 | Single card; back face = real detail overlay; box grows card → panel during the flip; scrim = app's --scrim | semantic pairing card → page; storyboard asked for the full detail page |
+| T1/T2 | Accent word marked with a partner-colour marker swipe (Anton has no italic); no fade-out, hard cut on beat | brand fonts; beat cuts |
+| 5 | Field focus chip reads "Autosaved" (real app behaviour) instead of AUTOFILL; Breed field also typed ("Beagle") | truthful copy; continuity into shot 6's real draft capture |
+| 6 | Sticker lands beside the "On your page" card; neighbours pushed = editor screen + publishing bar; headline line 2 lands with the slam | f2 layout |
+| 7 | Switch redrawn with the app's exact .kd-switch geometry/tokens over real captures (the knob must travel); team section lands as two full-width rows (heading band, cards band) | row-embed needs rows; texture crops only |
+| 8 | Elements cue +12f (static under the push seam); dust lime/periwinkle; cast = 6 adoption cards (Domino left out), Juniper preview card, Team section, Dogs chip, LIVE sticker | Q8: one representative per feature shot |
+| Audio | BGM pre-trimmed to `public/audio/bgm/cat-walk-promo.wav` (starts at song beat 18 + 1.28f output offset; 0.2 s fade-in and fade-out from beat 86 baked in) | workbench manifest has no start offset/envelope; identical file in render and workbench |
+
+Post-render measurements (2026-10-22, Remotion 4.0.484, AAC mp4):
+- Output audio offset 1.27–1.29f (click-camera / switch-tap / pop cross-correlation) → `OUTPUT_AUDIO_OFFSET_F = 1.28`; residuals after compensation ≤0.4f.
+- Cut/hit vs. nearest kick onset in the rendered mix: max |err| 2.41f (all ≤3f). Mix peak −3.9 dBFS.
+
+Independent final review (2026-10-22) — blocking findings and fixes:
+- Shot 3 filter bar flashed back to the unfiltered state for 3 frames in one master only (CSS `backgroundImage` not awaited by the renderer). All four filter-bar states are now mounted `<Img>` layers switched by opacity, so both masters render the same frames.
+- Shot 6 toast covered "Unpublish". The bar is re-captured without the toast and the toast is captured on its own (`scripts/capture-toast.mjs`), then placed in the bar's free span. It rises in 4 frames after the slam.
+- Shot 8 logo photo sat low in its ring because the inline `<Img>` inherited the 260px wordmark line box. Fixed with `display: block` in `CatLogo`.
+- Shot 5 field schedule tightened. The preview card now finishes about frame 86 (about 0.8 s hold). The caption leaves (frame 47) before the breed/date row it covers is typed.
+- Title cards: words start at frame 5, 2 frames apart, so each card is fully formed by about frame 26 and rests about 1 s.
+- Open: Domino's photo, from the app's sample data, carries a visible photographer credit ("Michelle Wrighton"). Flagged for the client; not altered.

@@ -16,14 +16,16 @@ const E = L.editor;
 type Box = { x: number; y: number; w: number; h: number };
 const CAM = { cx: 815, cy: 470, zoom: 1.3 };
 
-// Field schedule (shot-local frames): when the focus frame arrives on each field.
+// Field schedule (shot-local frames): when the focus frame arrives on each field. Packed so the finished
+// preview card lands by ~f86 and reads for ~0.8 s before the f110 cut (card pitfall: give the result a hold).
+// The breed/date row sits under the caption, so the editor caption leaves before F.breed.at (timeline.ts).
 const F = {
-  thumb: { box: E.thumb as Box, at: 8 },
-  name: { box: E.name as Box, at: 24, text: 'Juniper', per: 3 },
-  location: { box: E.location as Box, at: 46, text: 'Quezon City', per: 1.5 },
-  breed: { box: E.breed as Box, at: 66, text: 'Beagle', per: 1.5 },
-  date: { box: E.date as Box, at: 78, text: '9 Oct 2026', per: 1.5 },
-  card: { box: E.card as Box, at: 98 },
+  thumb: { box: E.thumb as Box, at: 4 },
+  name: { box: E.name as Box, at: 12, text: 'Juniper', per: 2 },
+  location: { box: E.location as Box, at: 30, text: 'Quezon City', per: 1.2 },
+  breed: { box: E.breed as Box, at: 48, text: 'Beagle', per: 1.2 },
+  date: { box: E.date as Box, at: 59, text: '9 Oct 2026', per: 1.2 },
+  card: { box: E.card as Box, at: 76 },
 };
 const ORDER = ['thumb', 'name', 'location', 'breed', 'date', 'card'] as const;
 const HOP = 6;
@@ -54,7 +56,7 @@ const rise = (p: number, dist = 16): React.CSSProperties => ({
 const Typed: React.FC<{ k: 'name' | 'location' | 'breed' | 'date'; frame: number }> = ({ k, frame }) => {
   const f = F[k];
   const n = frame < f.at + 2 ? 0 : Math.min(f.text.length, Math.floor((frame - f.at - 2) / f.per) + 1);
-  const caret = frame >= f.at && frame < typedEnd(k) + 8;
+  const caret = frame >= f.at && frame < typedEnd(k) + 3;
   return (
     <>
       {frame >= f.at + 2 && <div style={{ position: 'absolute', left: f.box.x + 6, top: f.box.y + 6, width: f.box.w - 12, height: f.box.h - 12, background: K.surface }} />}
